@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { ThemeProvider } from "@/hooks/useTheme";
 import SlideTitle from "./SlideTitle";
 import SlideExecutive from "./SlideExecutive";
 import SlideMaintenance from "./SlideMaintenance";
@@ -117,32 +118,34 @@ const PresentationViewer = () => {
   const CurrentSlideComponent = slides[currentSlide].component;
 
   return (
-    <div className="min-h-screen bg-background overflow-hidden relative">
-      {/* Slide Content */}
-      <div 
-        key={slideKey} 
-        className="min-h-screen py-16 md:py-8 flex items-center"
-      >
-        <div className="w-full">
-          <CurrentSlideComponent />
+    <ThemeProvider>
+      <div className="min-h-screen bg-background overflow-hidden relative transition-colors duration-300">
+        {/* Slide Content */}
+        <div 
+          key={slideKey} 
+          className="min-h-screen py-16 md:py-8 flex items-center"
+        >
+          <div className="w-full">
+            <CurrentSlideComponent />
+          </div>
         </div>
-      </div>
 
-      {/* Navigation */}
-      <NavigationControls
-        onPrev={goToPrev}
-        onNext={goToNext}
-        canPrev={currentSlide > 0}
-        canNext={currentSlide < slides.length - 1}
-        isFullscreen={isFullscreen}
-        onToggleFullscreen={toggleFullscreen}
+        {/* Navigation */}
+        <NavigationControls
+          onPrev={goToPrev}
+          onNext={goToNext}
+          canPrev={currentSlide > 0}
+          canNext={currentSlide < slides.length - 1}
+          isFullscreen={isFullscreen}
+          onToggleFullscreen={toggleFullscreen}
         currentSlide={currentSlide}
         totalSlides={slides.length}
       />
 
-      {/* Progress Indicator */}
-      <SlideProgress current={currentSlide} total={slides.length} />
-    </div>
+        {/* Progress Indicator */}
+        <SlideProgress current={currentSlide} total={slides.length} />
+      </div>
+    </ThemeProvider>
   );
 };
 

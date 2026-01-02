@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 interface NavigationControlsProps {
   onPrev: () => void;
@@ -52,6 +53,7 @@ const NavigationControls = ({
           <span className="text-primary font-medium">{currentSlide + 1}</span>
           <span className="text-muted-foreground"> / {totalSlides}</span>
         </div>
+        <ThemeToggle />
         <button
           onClick={onToggleFullscreen}
           className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-secondary transition-colors"

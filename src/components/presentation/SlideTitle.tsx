@@ -25,7 +25,7 @@ const SlideTitle = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 opacity-0 fade-up stagger-3">
           <div className="flex items-center gap-3 px-5 py-3 rounded-xl glass">
             <Calendar className="w-5 h-5 text-primary" />
-            <span className="text-foreground">Januari 2025</span>
+            <span className="text-foreground">Desember 2025</span>
           </div>
           <div className="flex items-center gap-3 px-5 py-3 rounded-xl glass">
             <User className="w-5 h-5 text-accent" />
